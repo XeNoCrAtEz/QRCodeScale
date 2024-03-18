@@ -13,12 +13,8 @@ void test_scale_get_reading() {
     scale.begin(PIN_SCALE_RX, PIN_SCALE_TX);
 
     double scaleReading = 0;
-    if (scale.get_reading(scaleReading) == Scale::SUCCESS) {
-        Serial.println("Scale reading: " + String(scaleReading) + " kg");
-    }
-    else {
-        Serial.println("Scale status error!");
-    }    
+    if  (scale.get_reading(scaleReading) == Scale::SUCCESS) Serial.println("Scale reading: " + String(scaleReading) + " kg");
+    else Serial.println("Scale status error!");
 }
 
 
