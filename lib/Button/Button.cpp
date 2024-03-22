@@ -10,21 +10,10 @@ Button::Button(uint8_t pin)
 }
 
 
-Button::OpStatus Button::on() {
+Button::OpStatus Button::is_pressed() {
     if (m_status != READY) return STATUS_ERROR;
     
-    if (m_level == HIGH) return PRESSED;
-    digitalWrite(m_pin, HIGH);
-
-    return PRESSED;
-}
-
-
-Button::OpStatus Button::off() {
-    if (m_status != READY) return STATUS_ERROR;
-    
-    if (m_level == LOW) return NOT_PRESSED;
-    digitalWrite(m_pin, LOW);
+    if (digitalRead(m_pin) == LOW) return PRESSED;
 
     return NOT_PRESSED;
 }

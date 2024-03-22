@@ -30,8 +30,7 @@ private:
 
 public:
     Button(uint8_t pin);
-    OpStatus on();
-    OpStatus off();
+    OpStatus is_pressed();
     Status release();
     Status status();
 
